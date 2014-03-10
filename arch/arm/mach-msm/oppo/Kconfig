@@ -1,0 +1,24 @@
+config MACH_OPPO
+	bool
+	depends on ARCH_APQ8064
+	select FB_MSM_MIPI_DSI
+
+menu "Oppo board selection"
+source "arch/arm/mach-msm/oppo/Kconfig.board"
+endmenu
+
+menu "Oppo specific options"
+
+config OPPO_TRACE
+	tristate "Oppo trace driver"
+	default n
+	help
+	  Oppo trace driver.
+
+config OPPO_DEVICE_INFO
+	bool "Oppo device info driver"
+	default y if MACH_OPPO
+	help
+	  Oppo device info driver.
+
+endmenu
